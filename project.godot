@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Vr Climbing Project"
-run/main_scene="res://level.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
+config/name="VRTest"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 
 [xr]
