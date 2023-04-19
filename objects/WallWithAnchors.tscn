@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://btsc22dsjw3ga"]
+
+[ext_resource type="PackedScene" uid="uid://ba74ek7koc4h6" path="res://objects/Wall.tscn" id="1_kwmnu"]
+[ext_resource type="PackedScene" uid="uid://cnp4mdlkp5xuu" path="res://objects/Anchor.tscn" id="2_8dsgv"]
+
+[node name="WallWithAnchors" type="Node3D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_kwmnu")]
+
+[node name="Anchor" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.194905, 2.4851, 0.0250001)
+
+[node name="Anchor2" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.1703, 0.753033, 0.025)
+
+[node name="Anchor3" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.17806, 0.418401, 0.025)
+
+[node name="Anchor4" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.408836, 0.428324, 0.025)
+
+[node name="Anchor5" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.739912, 0.826486, 0.025)
+
+[node name="Anchor6" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.685605, 1.26848, 0.025)
+
+[node name="Anchor7" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.535958, 0.732095, 0.0250001)
+
+[node name="Anchor8" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.181299, 0.883509, 0.025)
+
+[node name="Anchor9" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.350354, 1.45206, 0.025)
+
+[node name="Anchor10" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.416301, 1.37237, 0.025)
+
+[node name="Anchor11" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.13992, 1.11183, 0.025)
+
+[node name="Anchor12" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.868376, 1.5319, 0.0250001)
+
+[node name="Anchor13" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0475727, 1.7767, 0.025)
+
+[node name="Anchor14" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.13361, 1.17428, 0.0250001)
+
+[node name="Anchor15" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.910892, 1.6059, 0.0249999)
+
+[node name="Anchor16" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.460538, 1.89313, 0.025)
+
+[node name="Anchor17" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.436792, 1.91794, 0.025)
+
+[node name="Anchor18" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.860792, 1.93614, 0.025)
+
+[node name="Anchor19" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.28879, 1.72045, 0.0249999)
+
+[node name="Anchor20" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.13892, 2.26411, 0.025)
+
+[node name="Anchor21" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.645789, 2.24453, 0.025)
+
+[node name="Anchor24" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.28329, 1.6066, 0.025)
+
+[node name="Anchor26" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.29101, 2.22878, 0.025)
+
+[node name="Anchor27" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.833471, 2.41015, 0.025)
+
+[node name="Anchor28" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.34936, 2.76039, 0.0250001)
+
+[node name="Anchor29" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.845524, 3.11409, 0.0250001)
+
+[node name="Anchor30" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.35689, 3.5057, 0.0250001)
+
+[node name="Anchor31" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.816434, 3.75576, 0.0250001)
+
+[node name="Anchor32" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.185997, 3.08073, 0.0250001)
+
+[node name="Anchor33" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.321702, 3.55927, 0.0250001)
+
+[node name="Anchor34" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.554656, 2.8266, 0.0250001)
+
+[node name="Anchor35" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.20119, 3.13167, 0.0250001)
+
+[node name="Anchor36" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.418355, 3.35542, 0.0250001)
+
+[node name="Anchor37" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.96976, 3.5141, 0.0250001)
+
+[node name="Anchor38" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.354329, 3.83674, 0.0250001)
+
+[node name="Anchor39" parent="." instance=ExtResource("2_8dsgv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.29902, 3.7991, 0.0250001)

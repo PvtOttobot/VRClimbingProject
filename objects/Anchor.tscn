@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnp4mdlkp5xuu"]
+
+[ext_resource type="Script" path="res://objects/Area3D.gd" id="1_7mlxw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pih2a"]
+radius = 0.01
+height = 0.1
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v5rkf"]
+radius = 0.01
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlneb"]
+albedo_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Anchor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0336291, -1.46998e-09)
+script = ExtResource("1_7mlxw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_pih2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CapsuleMesh_v5rkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_wlneb")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://beck0p8mx063q"]
+[gd_scene load_steps=10 format=3 uid="uid://beck0p8mx063q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vk1mi"]
-[ext_resource type="PackedScene" uid="uid://blfeyf61514oy" path="res://Wall.tscn" id="2_r3m7p"]
+[ext_resource type="Script" path="res://HandToAnchor.gd" id="2_ldu2s"]
+[ext_resource type="PackedScene" uid="uid://btsc22dsjw3ga" path="res://objects/WallWithAnchors.tscn" id="2_xw503"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_00u3o"]
 
@@ -16,6 +17,9 @@ sky = SubResource("Sky_5l3qy")
 size = Vector2(10, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_flawf"]
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ve0b"]
 size = Vector3(0.05, 0.05, 0.05)
 
 [node name="Main" type="Node3D"]
@@ -45,11 +49,17 @@ mesh = SubResource("BoxMesh_flawf")
 tracker = &"right_hand"
 pose = &"aim"
 
-[node name="RightHandBox" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+[node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/RightHand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHand/StaticBody3D"]
+shape = SubResource("BoxShape3D_2ve0b")
+script = ExtResource("2_ldu2s")
+
+[node name="RightHandBox" type="MeshInstance3D" parent="XROrigin3D/RightHand/StaticBody3D"]
 mesh = SubResource("BoxMesh_flawf")
+skeleton = NodePath("../..")
 
-[node name="Wall" parent="." instance=ExtResource("2_r3m7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+[node name="WallWithAnchors" parent="." instance=ExtResource("2_xw503")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458038, 0, -0.951068)
 
-[node name="Wall2" parent="." instance=ExtResource("2_r3m7p")]
-transform = Transform3D(0.516145, 0, 0.856501, 0.361323, 0.906662, -0.21774, -0.776557, 0.421859, 0.467969, 0.935576, 0.351499, 0.177127)
+[connection signal="tree_entered" from="XROrigin3D/RightHand/StaticBody3D/CollisionShape3D" to="XROrigin3D/RightHand/StaticBody3D/CollisionShape3D" method="_on_tree_entered"]
