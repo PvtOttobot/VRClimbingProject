@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce3xdq8t6xpo8"]
+[gd_scene load_steps=10 format=3 uid="uid://ce3xdq8t6xpo8"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_2j6te"]
 [ext_resource type="PackedScene" uid="uid://ckbwbik236ulu" path="res://objects/Player.tscn" id="1_mv1ic"]
 [ext_resource type="PackedScene" uid="uid://b8rqy14ows0xh" path="res://uz/Wall.tscn" id="2_yf1wk"]
 
@@ -26,9 +27,13 @@ background_mode = 2
 sky = SubResource("Sky_iri2j")
 ambient_light_source = 3
 
-[node name="mineshaft" type="Node3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_r7dmw"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.05
 
-[node name="Player" parent="." instance=ExtResource("1_mv1ic")]
+[node name="mineshaft" type="Node3D"]
+script = ExtResource("1_2j6te")
 
 [node name="Plank3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
@@ -40,19 +45,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 mesh = SubResource("BoxMesh_vgqct")
 
 [node name="Platform" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68912, 0)
 mesh = SubResource("CylinderMesh_wvrbc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g54jw")
 
 [node name="Wall" parent="." instance=ExtResource("2_yf1wk")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1, 0)
 
 [node name="Wall2" parent="." instance=ExtResource("2_yf1wk")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
 
 [node name="Wall3" parent="." instance=ExtResource("2_yf1wk")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 1, 0)
 
 [node name="Wall4" parent="." instance=ExtResource("2_yf1wk")]
-transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, 0)
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_mv1ic")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.761984, 0.374672, -0.528206, -0.11212, 0.87965, 0.462217, 0.637816, -0.292979, 0.712287, -0.139353, 1.14149, 0.33867)
+light_color = Color(1, 1, 0.317647, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D"]
+mesh = SubResource("CylinderMesh_r7dmw")
