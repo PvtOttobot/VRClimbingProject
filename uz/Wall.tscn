@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8rqy14ows0xh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jdpl6"]
+size = Vector3(0.1, 2.1, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p3siw"]
+size = Vector3(0.1, 5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7q0h"]
+size = Vector3(0.1, 2.1, 0.05)
+
+[node name="Wall" type="Node3D"]
+
+[node name="diagonal2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.353475, 0.935444, 0, -0.935444, 0.353475, 0, 0, 0, 1, 0, 1.76809, -1)
+mesh = SubResource("BoxMesh_jdpl6")
+skeleton = NodePath("../Plank")
+
+[node name="diagonal" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.352969, -0.935635, 0, 0.935635, 0.352969, 0, 0, 0, 1, 0, 0.768088, -1)
+mesh = SubResource("BoxMesh_jdpl6")
+skeleton = NodePath("../Plank")
+
+[node name="Plank" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+mesh = SubResource("BoxMesh_p3siw")
+
+[node name="Plank4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = SubResource("BoxMesh_p3siw")
+skeleton = NodePath("../Plank3")
+
+[node name="diagonal3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.353475, 0.935444, 0, -0.935444, 0.353475, 0, 0, 0, 1, 0, -0.231912, -1)
+mesh = SubResource("BoxMesh_r7q0h")
+skeleton = NodePath("../Plank")
+
+[node name="diagonal4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.352969, -0.935635, 0, 0.935635, 0.352969, 0, 0, 0, 1, 0, -1.23191, -1)
+mesh = SubResource("BoxMesh_r7q0h")
+skeleton = NodePath("../Plank")

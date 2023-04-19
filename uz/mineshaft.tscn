@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce3xdq8t6xpo8"]
+
+[ext_resource type="PackedScene" uid="uid://ckbwbik236ulu" path="res://objects/Player.tscn" id="1_mv1ic"]
+[ext_resource type="PackedScene" uid="uid://b8rqy14ows0xh" path="res://uz/Wall.tscn" id="2_yf1wk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vgqct"]
+size = Vector3(0.1, 5, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wvrbc"]
+height = 0.05
+radial_segments = 10
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8e354"]
+sky_top_color = Color(0.133333, 0.243137, 0.25098, 1)
+sky_horizon_color = Color(0.0745098, 0.121569, 0.0823529, 1)
+sky_curve = 2.31824
+ground_bottom_color = Color(0.0392157, 0.0588235, 0.0470588, 1)
+ground_horizon_color = Color(0.0745098, 0.121569, 0.0823529, 1)
+ground_curve = 0.139288
+
+[sub_resource type="Sky" id="Sky_iri2j"]
+sky_material = SubResource("ProceduralSkyMaterial_8e354")
+
+[sub_resource type="Environment" id="Environment_g54jw"]
+background_mode = 2
+sky = SubResource("Sky_iri2j")
+ambient_light_source = 3
+
+[node name="mineshaft" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mv1ic")]
+
+[node name="Plank3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+mesh = SubResource("BoxMesh_vgqct")
+skeleton = NodePath("../Plank2")
+
+[node name="Plank2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = SubResource("BoxMesh_vgqct")
+
+[node name="Platform" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_wvrbc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g54jw")
+
+[node name="Wall" parent="." instance=ExtResource("2_yf1wk")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("2_yf1wk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Wall3" parent="." instance=ExtResource("2_yf1wk")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="Wall4" parent="." instance=ExtResource("2_yf1wk")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, 0)
