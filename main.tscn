@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://beck0p8mx063q"]
+[gd_scene load_steps=8 format=3 uid="uid://beck0p8mx063q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vk1mi"]
-[ext_resource type="Script" path="res://HandToAnchor.gd" id="2_ldu2s"]
 [ext_resource type="PackedScene" uid="uid://btsc22dsjw3ga" path="res://objects/WallWithAnchors.tscn" id="2_xw503"]
+[ext_resource type="PackedScene" uid="uid://ckbwbik236ulu" path="res://objects/Player.tscn" id="3_pkl5i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_00u3o"]
 
@@ -16,12 +16,6 @@ sky = SubResource("Sky_5l3qy")
 [sub_resource type="PlaneMesh" id="PlaneMesh_ray6m"]
 size = Vector2(10, 10)
 
-[sub_resource type="BoxMesh" id="BoxMesh_flawf"]
-size = Vector3(0.05, 0.05, 0.05)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ve0b"]
-size = Vector3(0.05, 0.05, 0.05)
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vk1mi")
 
@@ -34,32 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 0.878792, 0.477205, 0, -0.477205, 0.878792, 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_ray6m")
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
-
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
-tracker = &"left_hand"
-pose = &"aim"
-
-[node name="LeftHandBox" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
-mesh = SubResource("BoxMesh_flawf")
-
-[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-tracker = &"right_hand"
-pose = &"aim"
-
-[node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/RightHand"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHand/StaticBody3D"]
-shape = SubResource("BoxShape3D_2ve0b")
-script = ExtResource("2_ldu2s")
-
-[node name="RightHandBox" type="MeshInstance3D" parent="XROrigin3D/RightHand/StaticBody3D"]
-mesh = SubResource("BoxMesh_flawf")
-skeleton = NodePath("../..")
-
 [node name="WallWithAnchors" parent="." instance=ExtResource("2_xw503")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458038, 0, -0.951068)
 
-[connection signal="tree_entered" from="XROrigin3D/RightHand/StaticBody3D/CollisionShape3D" to="XROrigin3D/RightHand/StaticBody3D/CollisionShape3D" method="_on_tree_entered"]
+[node name="Player" parent="." instance=ExtResource("3_pkl5i")]
