@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://da5jigupo51rp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4y8t"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c7j5c"]
+material = SubResource("StandardMaterial3D_u4y8t")
+size = Vector3(0.04, 0.03, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1c5e"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uillj"]
+material = SubResource("StandardMaterial3D_i1c5e")
+radius = 0.02
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr0ln"]
+albedo_color = Color(1, 0.905882, 0.360784, 1)
+backlight_enabled = true
+backlight = Color(0.721569, 0.709804, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bwaky"]
+material = SubResource("StandardMaterial3D_mr0ln")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6064s"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7x3ps"]
+material = SubResource("StandardMaterial3D_6064s")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.018
+
+[node name="Lantern" type="Node3D"]
+
+[node name="top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106064, 0)
+mesh = SubResource("BoxMesh_c7j5c")
+
+[node name="top_ball" type="MeshInstance3D" parent="top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("SphereMesh_uillj")
+
+[node name="shaft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058, 0)
+mesh = SubResource("CylinderMesh_bwaky")
+
+[node name="bottom" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009, 0)
+mesh = SubResource("CylinderMesh_7x3ps")
+skeleton = NodePath("../top")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057624, -0.0362562)
+light_color = Color(1, 1, 0.317647, 1)

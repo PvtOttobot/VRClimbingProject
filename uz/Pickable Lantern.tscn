@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcylmpidrl8ig"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_wmvs6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vk6t"]
+margin = 0.01
+size = Vector3(0.1, 0.264, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icxd6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nmjcd"]
+material = SubResource("StandardMaterial3D_icxd6")
+size = Vector3(0.04, 0.03, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fstls"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pbtgo"]
+material = SubResource("StandardMaterial3D_fstls")
+radius = 0.02
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qw3n1"]
+albedo_color = Color(1, 0.905882, 0.360784, 1)
+backlight_enabled = true
+backlight = Color(0.721569, 0.709804, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1xpde"]
+material = SubResource("StandardMaterial3D_qw3n1")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgnuk"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_waemg"]
+material = SubResource("StandardMaterial3D_lgnuk")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.018
+
+[node name="PickableObject" instance=ExtResource("1_wmvs6")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0660031, 0)
+shape = SubResource("BoxShape3D_7vk6t")
+
+[node name="top" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.162205, 0)
+mesh = SubResource("BoxMesh_nmjcd")
+
+[node name="top_ball" type="MeshInstance3D" parent="top" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("SphereMesh_pbtgo")
+
+[node name="shaft" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.058, 0)
+mesh = SubResource("CylinderMesh_1xpde")
+
+[node name="bottom" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0380795, 0)
+mesh = SubResource("CylinderMesh_waemg")
+skeleton = NodePath("../top")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057624, -0.0362562)
+light_color = Color(1, 1, 0.317647, 1)
